@@ -1,0 +1,11 @@
+[
+  {
+    "id": 2,
+    "title": "Auriculares Gamer",
+    "description": "Auriculares con micrófono y sonido envolvente 7.1",
+    "price": 4501,
+    "thumbnail": "https://example.com/auriculares.jpg",
+    "code": "AUR124",
+    "stock": 20
+  }
+]
