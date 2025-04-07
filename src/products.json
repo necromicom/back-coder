@@ -7,5 +7,32 @@
     "thumbnail": "https://example.com/auriculares.jpg",
     "code": "AUR124",
     "stock": 20
+  },
+  {
+    "id": 3,
+    "title": "Mouse gamer",
+    "description": "Mouse ergonómico con luces RGB",
+    "price": 15000,
+    "thumbnail": "https://ejemplo.com/mouse.jpg",
+    "code": "MG001",
+    "stock": 30
+  },
+  {
+    "id": 4,
+    "title": "Mouse gamer",
+    "description": "Mouse ergonómico con luces RGB",
+    "price": 15000,
+    "thumbnail": "https://ejemplo.com/mouse.jpg",
+    "code": "MG0",
+    "stock": 30
+  },
+  {
+    "id": 5,
+    "title": "Mouse gamer",
+    "description": "Mouse ergonómico con luces RGB",
+    "price": 15000,
+    "thumbnail": "https://ejemplo.com/mouse.jpg",
+    "code": "MG",
+    "stock": 30
   }
 ]
