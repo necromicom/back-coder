@@ -1,38 +1,34 @@
 [
   {
-    "id": 2,
-    "title": "Auriculares Gamer",
-    "description": "Auriculares con micrófono y sonido envolvente 7.1",
-    "price": 4501,
-    "thumbnail": "https://example.com/auriculares.jpg",
-    "code": "AUR124",
-    "stock": 20
+    "id": 7,
+    "title": "asd",
+    "description": "asdsaad",
+    "price": "12333",
+    "code": "aasas",
+    "stock": "1233"
   },
   {
-    "id": 3,
-    "title": "Mouse gamer",
-    "description": "Mouse ergonómico con luces RGB",
-    "price": 15000,
-    "thumbnail": "https://ejemplo.com/mouse.jpg",
-    "code": "MG001",
-    "stock": 30
+    "id": 8,
+    "title": "asd",
+    "description": "asdsaad",
+    "price": "12333",
+    "code": "aasa",
+    "stock": "1233"
   },
   {
-    "id": 4,
-    "title": "Mouse gamer",
-    "description": "Mouse ergonómico con luces RGB",
-    "price": 15000,
-    "thumbnail": "https://ejemplo.com/mouse.jpg",
-    "code": "MG0",
-    "stock": 30
+    "id": 9,
+    "title": "asddd",
+    "description": "zzzz",
+    "price": "123",
+    "code": "ass",
+    "stock": "12"
   },
   {
-    "id": 5,
-    "title": "Mouse gamer",
-    "description": "Mouse ergonómico con luces RGB",
-    "price": 15000,
-    "thumbnail": "https://ejemplo.com/mouse.jpg",
-    "code": "MG",
-    "stock": 30
+    "id": 10,
+    "title": "asddd",
+    "description": "zzzz",
+    "price": "123",
+    "code": "assd",
+    "stock": "12"
   }
 ]
