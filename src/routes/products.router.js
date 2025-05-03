@@ -3,7 +3,6 @@ import { Product } from '../prod.js'
 
 const productRouter = express.Router()
 const product = new Product()
-productRouter.use(express.json())
 
 productRouter.get("/products", async(req, res)=>{
     const list = await product.getProduct()

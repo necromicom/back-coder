@@ -24,7 +24,7 @@ const main = () => {
         plist.innerHTML = "" 
         products.forEach(prod => {
             plist.innerHTML += `<li data-id="${prod.id}">${prod.title} (ID: ${prod.id})
-            <button class="delete-btn" data-id="${prod.id}"> Eliminar</button></li>`
+            <button class="delete-btn" data-id="${prod.id}">Eliminar</button></li>`
         })
     })
 }

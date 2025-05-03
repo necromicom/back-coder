@@ -6,10 +6,14 @@ import { engine } from 'express-handlebars';
 import cartsRouter from './routes/carts.router.js'
 import realtimeproductsRouter from './routes/realTimeProducts.router.js';
 import { Product } from './prod.js'
+import connectionDB from './config/db.js';
+import unifiedRouter from './routes/unified.Router.js';
+
 const app = express();
 const PORT = 8080
 const server = http.createServer(app)
 const product = new Product()
+connectionDB()
 app.use(express.json())
 app.use(express.static(`public`))
 //ws
@@ -48,4 +52,5 @@ app.set(`views`, `./src/views`)
 app.use("/", productRouter)
 app.use("/", cartsRouter)
 app.use(`/`, realtimeproductsRouter)
+app.use("/", unifiedRouter)
 server.listen(PORT, ()=>console.log(`escuchando en el ${PORT}`))
