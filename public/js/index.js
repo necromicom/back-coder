@@ -23,8 +23,8 @@ const main = () => {
     socket.on("up", (products) => {
         plist.innerHTML = "" 
         products.forEach(prod => {
-            plist.innerHTML += `<li data-id="${prod.id}">${prod.title} (ID: ${prod.id})
-            <button class="delete-btn" data-id="${prod.id}">Eliminar</button></li>`
+            plist.innerHTML += `<li data-id="${prod._id}">${prod.title} (ID: ${prod._id})
+            <button class="delete-btn" data-id="${prod._id}">Eliminar</button></li>`
         })
     })
 }
