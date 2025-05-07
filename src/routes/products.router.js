@@ -25,7 +25,7 @@ productRouter.post("/api/products", async(req, res)=>{
         await newProduct.save()
         res.status(201).json({status: "sucsess", payload: newProduct })
     } catch (error) {
-        res.status(404).json({status: "eror", message: `error al crear el producto ${producto}`})
+        res.status(500).json({status: "error", message: `error al crear el producto ${producto}`})
     }
 
 })
@@ -34,7 +34,7 @@ productRouter.put("/api/products/:pid", async (req, res) => {
     const updates = req.body
     try {
         const updatedProduct = await Product.findByIdAndUpdate(pid, updates,{new: true, runValidators: true})
-        res.status(200).json({status: "sucsess", payload: updatedProduct })
+        res.status(200).json({status: "success", payload: updatedProduct })
     } catch (error) {
         res.status(404).json({status: "eror", message: `error al modificar el producto ${pid}`})
     }

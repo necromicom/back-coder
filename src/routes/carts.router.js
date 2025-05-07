@@ -1,58 +1,48 @@
-import { Carro } from '../cart.js';
-import express from "express";
 
-const cart = new Carro()
+import express from "express";
+import Cart from '../models/cart.model.js';
+
 const cartsRouter = express.Router()
 cartsRouter.use(express.json())
 cartsRouter.post("/api/carts", async (req, res) => {
     try {
-        const newCart = await cart.addCart()
-        res.status(201).send(newCart)
+        const newCart = new Cart()
+        await newCart.save()
+        res.status(201).json({status: "success", payload: newCart})
     } catch (err) {
-        console.error("Error al crear el carrito:", err)
-        res.status(500).send({ error: "Error al crear el carrito" })
+        res.status(500).json({status: "error", message: `error al crear el carro`})
     }
 })
 cartsRouter.post("/api/carts/:cid/product/:pid", async (req, res) => {
-    const cid = req.params.cid
-    const pid = req.params.pid
-    const quantity = req.body
+    try {
+        const cid = req.params.cid
+        const pid = req.params.pid
+        const quantity = req.body
+        const updatedCart = await Cart.findByIdAndUpdate(cid, {$push:{products: {product: pid, quantity}}}, { new: true, runValidators: true})
+        if (!updatedCart) return res.status(404).json({status: "error", message: `error al modificar el carro`})
+        res.status(200).json({status: "success", payload: updatedCart})
+    } catch (error) {
+        res.status(404).json({status: "error", message: `error al actualizar el carro`})
 
-    res.send(await cart.addProductInCart(cid, pid, quantity))
+    }
 })
 cartsRouter.get("/api/carts/:cid", async (req, res) => {
     const cid = req.params.cid
-    res.send(await cart.getCartById(cid))
+    try {
+        const carro = await Cart.findById(cid)
+        res.status(200).json({status: "success", payload: carro})
+
+    } catch (error) {
+        res.status(404).json({status: "error", message: `error al buscar el carro`})
+
+    }
 })
 cartsRouter.get("/api/carts", async (req, res) => {
-    res.send(await cart.getCart())
+    try {
+        const list = await Cart.find()
+        res.status(200).json({status: "success", payload: list})
+    } catch (error) {
+        res.status(404).json({status: "error", message: `error al buscar los carros`})
+    }
 })
 export default cartsRouter
-
-// //crear carro
-// app.post("/api/carts", async (req, res) => {
-//     try {
-//         const newCart = await cart.addCart()
-//         res.status(201).send(newCart)
-//     } catch (err) {
-//         console.error("Error al crear el carrito:", err)
-//         res.status(500).send({ error: "Error al crear el carrito" })
-//     }
-// })
-// //add2Cart
-// app.post("/api/carts/:cid/product/:pid", async (req, res) => {
-//     const cid = req.params.cid
-//     const pid = req.params.pid
-//     const quantity = req.body
-
-//     res.send(await cart.addProductInCart(cid, pid, quantity))
-// })
-// //getCartById
-// app.get("/api/carts/:cid", async (req, res) => {
-//     const cid = req.params.cid
-//     res.send(await cart.getCartById(cid))
-// })
-// app.get("/api/carts", async (req, res) => {
-//     res.send(await cart.getCart())
-// })
-
