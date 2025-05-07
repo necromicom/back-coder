@@ -1,12 +1,13 @@
 import express from "express"
-import { Product } from '../prod.js'
+import { ProductManager } from '../prod.js'
+import Product from "../models/productos.js"
 
 const realtimeproductsRouter = express.Router()
-const product = new Product()
+const product = new ProductManager()
 realtimeproductsRouter.use(express.json())
 
 realtimeproductsRouter.get("/realtimeproducts", async(req, res)=>{
-    const list = await product.getProduct()
+    const list = await Product.find()
     res.render(`realtimeproducts`, {list})
 })
 

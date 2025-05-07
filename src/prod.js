@@ -1,6 +1,6 @@
 import fs from "fs"
 
-export class Product{
+export class ProductManager{
     constructor(){
         this.path = "./src/products.json"
     }
