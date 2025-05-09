@@ -4,7 +4,7 @@ import { Server } from "socket.io";
 import productRouter from './routes/products.router.js';
 import { engine } from 'express-handlebars';
 import cartsRouter from './routes/carts.router.js'
-import realtimeproductsRouter from './routes/realTimeProducts.router.js';
+import viewsRouter from './routes/realTimeProducts.router.js';
 import connectionDB from './config/db.js';
 import Product from './models/productos.js';
 
@@ -57,6 +57,6 @@ app.set(`views`, `./src/views`)
 //endpoints
 app.use("/", productRouter)
 app.use("/", cartsRouter)
-app.use(`/`, realtimeproductsRouter)
+app.use(`/`, viewsRouter)
 
 server.listen(PORT, ()=>console.log(`escuchando en el ${PORT}`))

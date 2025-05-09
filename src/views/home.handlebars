@@ -1,12 +1,20 @@
 <div>
     <h1>productos</h1>
-    {{#each list}}
-    <ul>
+    
+    <ul>{{#each products}}
         <li>titulo:{{this.title}}</li>
-        <li>descripcion:{{this.description}}</li>
         <li>Precio:{{this.price}}</li>
-        <li>{{this.code}}</li>
-        <li>{{this._id}}</li>
-    </ul>
+        <li>Code:{{this.code}}</li>
+        <li>id:{{this._id}}</li>
+        <li><a href="/product/{{this._id}}">desc com</a></li>
     {{/each}}
+    </ul>
+    
 </div>
+{{#if products.hasPrevPage}}
+<a href="products/?limit={{products.limit}}&page={{products.prevPage}}">anterior</a>
+{{/if}}
+
+{{#if products.hasNextPage}}
+<a href="products/?limit={{products.limit}}&page={{products.nextPage}}">siguiente</a>
+{{/if}}

@@ -22,6 +22,11 @@ const p =  new mongoose.Schema({
     category: {
         type: Array, required: false
     },
+    tags:{
+        type:Array,
+        required: false,
+        default: []
+    },
     status: {
         type: Boolean,
         default: true,
