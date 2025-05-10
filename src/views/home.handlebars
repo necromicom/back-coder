@@ -1,7 +1,7 @@
 <div>
     <h1>productos</h1>
     
-    <ul>{{#each products}}
+    <ul>{{#each products.docs}}
         <li>titulo:{{this.title}}</li>
         <li>Precio:{{this.price}}</li>
         <li>Code:{{this.code}}</li>
@@ -12,9 +12,9 @@
     
 </div>
 {{#if products.hasPrevPage}}
-<a href="products/?limit={{products.limit}}&page={{products.prevPage}}">anterior</a>
+<a href="products?limit={{products.limit}}&page={{products.prevPage}}">anterior</a>
 {{/if}}
 
 {{#if products.hasNextPage}}
-<a href="products/?limit={{products.limit}}&page={{products.nextPage}}">siguiente</a>
+<a href="products?limit={{products.limit}}&page={{products.nextPage}}">siguiente</a>
 {{/if}}

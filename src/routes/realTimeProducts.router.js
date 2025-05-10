@@ -1,4 +1,5 @@
 import express from "express"
+import Cart from "../models/cart.model.js"
 
 import Product from "../models/productos.js"
 
@@ -30,5 +31,13 @@ viewsRouter.get("/product/:pid", async (req, res) => {
         res.json({status: "error", message: `error: ${error.message}` })
     }
 })
-
+viewsRouter.get("/carts/:cid", async (req, res) => {
+    try {
+        const cid = req.params.cid
+        const carro = await Cart.findById(cid).populate("products.product")
+        res.status(200).render("cart" , {carro})
+    } catch (error) {
+        res.status(404).json({status: "error", message: `error al buscar el carro`})
+    }
+})
 export default viewsRouter
